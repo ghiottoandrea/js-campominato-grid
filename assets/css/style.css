@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3rem auto;
+    max-width: 1000px;
+}
+#btn{
+margin: 2rem 0;
+padding: 0.5rem;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: palevioletred;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 100px;
+}
+
+.blue{
+    background-color: rgb(21, 208, 237);
+}
+
+.active{
+    display: flex;
+}
+
+.vanish{
+    display: none;
+}
