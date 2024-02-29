@@ -29,20 +29,17 @@
 .box {
     width: 100px;
     height: 100px;
-    background-color: palevioletred;
+    background-color: lightgray;
     border: 2px solid black;
     text-align: center;
     line-height: 100px;
 }
 
-.blue {
-    background-color: rgb(21, 208, 237);
+.wrong {
+    background-color: rgb(184, 22, 22);
+    font-size: 50px;
 }
 
-.active {
-    display: flex;
-}
-
-.vanish {
-    display: none;
+.correct{
+    background-color: palegreen;
 }

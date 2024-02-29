@@ -14,21 +14,36 @@ function gridGenerator(cellNumber) {
     }
 }
 
-//- Al click della casella cambia colore e manda un massaggio in console con il numero
+
+//## Quando l'utente clicca su una cella:
+/*
+Se il numero è presente nella lista dei numeri generati
+- abbiamo calpestato una fungo
+- la cella si colora di rosso e la partita termina.
+*/
+
+//ELSE la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
 function boxToggle() {
     const boxEl = document.getElementsByClassName(`box`)
-    let clickCount = 0;
-
+    let gameEnded = false
     for (let i = 0; i < boxEl.length; i++) {
         const element = boxEl[i];
+
         element.addEventListener(`click`, function () {
 
-            element.classList.toggle(`blue`)
+            if (!gameEnded) {
 
-            clickCount++;
-            if (clickCount === 1 || clickCount % 2 === 1) {
                 console.log(`Hai cliccato sulla casella numero ${element.textContent}`);
+                const cellNumber = parseInt(element.textContent);
 
+                if (mushrooms.includes(cellNumber)) {
+                    element.classList.add(`wrong`);
+                    element.textContent = `🍄`
+                    console.log(`Hai calpestato un fungo! Partita terminata.`);
+                    gameEnded = true; // Imposta il flag per indicare che la partita è terminata
+                } else {
+                    element.classList.add(`correct`)
+                }
             }
         })
     }
@@ -43,7 +58,7 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-for (let i = 0; i < 16; i++){
+for (let i = 0; i < 16; i++) {
     let randomNumb;
     do {
         randomNumb = getRndInteger(1, 100);
@@ -53,4 +68,3 @@ for (let i = 0; i < 16; i++){
 }
 
 console.log(mushrooms);
-
